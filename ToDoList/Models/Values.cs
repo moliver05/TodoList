@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System;
 namespace ToDoList.Models
 {
-  public class Item
+  public class Values
   {
     private string _description;
     private static List<Item> _instances = new List<Item> {};
