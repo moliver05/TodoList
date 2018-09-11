@@ -10,14 +10,5 @@ namespace ToDoList.Controllers
         {
             return View();
         }
-        [HttpPost("/items_form")]
-    public ActionResult ToDoList()
-    {
-      Values myValues = new Values();
-      myValues.SetDescription(Request.Query["new-item"]);
-
-
-      return View("Index", myValues);
-    }
     }
 }
