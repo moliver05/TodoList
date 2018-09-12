@@ -11,8 +11,8 @@ public class ItemsController : Controller
   [HttpGet("/items")]
   public ActionResult Index()
   {
-      List<Item> allItems = new List<Item> {};
-      return View(allItems);
+    List<Item> allItems = Item.GetAll();
+    return View(allItems);
   }
 
   [HttpGet("/items/new")]
@@ -25,9 +25,16 @@ public class ItemsController : Controller
   public ActionResult Create()
   {
       Item newItem = new Item(Request.Form["new-item"]);
-      newItem.Save();
+      // newItem.Save();
       List<Item> allItems = Item.GetAll();
       return View("Index", allItems);
+  }
+
+  [HttpGet("/items/{id}")]
+    public ActionResult Details(int id)
+  {
+    Item item = Item.Find(id);
+    return View(item);
   }
 
  }
